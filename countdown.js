@@ -29,8 +29,19 @@ const computePercentLeft = (batch) => {
   return percentage
 }
 
-self.addEventListener("load", () => {  
+const renderCountdown = () => {
   const batch = getBatchFromQueryParams();
   const percentage = computePercentLeft(batch);
   document.getElementById("percentage").textContent = percentage;
+}
+
+self.addEventListener("load", () => {  
+  renderCountdown()
+  setInterval(() => renderCountdown(), 1800000) // re-render every 30 mins
+});
+
+self.addEventListener("visibilitychange", () => {
+  if (document.visibilityState == "visible") {
+    renderCountdown()
+  }
 });
