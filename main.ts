@@ -1,8 +1,8 @@
 Deno.serve((req: Request) => {
   const pathname = new URL(req.url).pathname;
   switch (pathname) {
-    case "/batches.json": {
-      return new Response(Deno.readFileSync("batches.json"), { headers: { "Content-Type": "application/json" } });
+    case "/batches.js": {
+      return new Response(Deno.readFileSync("batches.js"), { headers: { "Content-Type": "text/javascript" } });
     }
     case "/index.js": {
       return new Response(Deno.readFileSync("index.js"), { headers: { "Content-Type": "text/javascript" } });
