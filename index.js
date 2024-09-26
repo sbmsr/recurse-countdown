@@ -13,5 +13,5 @@ self.addEventListener("load", () => {
     })
   let html = ""
   batchCountdownUrls.forEach((url, idx) => {html += `<a href="${url}">${batchNames[idx]}</a> <br />`})
-    document.getElementById("links").setHTMLUnsafe(html);
+    document.getElementById("links").innerHTML = html;
 });
